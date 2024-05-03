@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scientific Number Accepter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      position: relative;
+      color: #333333; /* Set text color to dark grey */
+    }
+
+    .student-info {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: #ffffff; /* Set name and NIM color to white */
+      font-weight: bold;
+      background-color: #0000ff; /* Add a blue background */
+      padding: 5px 10px; /* Add some padding */
+      border-radius: 5px; /* Add rounded corners */
+    }
+
+    .container {
+      background-color: #e0e0eb;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    h1 {
+      color: #0000ff;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #0000ff;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #0000ff;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #0000ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="student-info">
+    Name: Gabriell C. A. Taroreh<br>
+    NIM: 221011060112
+  </div>
+  <div class="container">
+    <h1>Scientific Number Accepter</h1>
+    <input type="text" id="numInput" placeholder="Enter a scientific number">
+    <button onclick="validateNumber()">Submit</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function validateNumber() {
+      const input = document.getElementById('numInput').value.trim();
+      const numRegex = /^-?(\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?$/;
+
+      if (input === '') {
+        document.getElementById('result').textContent = 'Please enter something.';
+      } else if (numRegex.test(input)) {
+        document.getElementById('result').textContent = `${input} is a valid scientific number.`;
+      } else {
+        document.getElementById('result').textContent = `${input} is not a valid scientific number.`;
+      }
+    }
+  </script>
+</body>
+</html>
